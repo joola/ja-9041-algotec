@@ -162,7 +162,14 @@ define(function (require) {
         function _displayField(row, field, breakWords) {
           var text = _getValForField(row, field);
           text = highlightFilter(text, row.highlight && row.highlight[field]);
-
+          if (field === 'concept' && row.highlight && row.highlight['concept.text']) {
+            text = '';
+            row.highlight['concept.text'].forEach(function (h) {
+              text += '...' + h.replace(/\r\n/ig, ' ').replace(/\n/ig, ' ').replace(/\r/ig, ' ');
+            });
+            text = text.replace(/@kibana-highlighted-field@/ig, '<mark>');
+            text = text.replace(/@\/kibana-highlighted-field@/ig, '</mark>');
+          }
           if (breakWords) {
             text = addWordBreaks(text, MIN_LINE_LENGTH);
 
