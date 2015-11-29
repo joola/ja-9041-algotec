@@ -79,6 +79,14 @@ define(function (require) {
     'truncate:maxHeight': {
       value: 115,
       description: 'The maximum height that a cell in a table should occupy. Set to 0 to disable truncation.'
+    },
+    'fragments:fragment_size': {
+      value: 250,
+      description: 'The maximum number of characters to include within highlight response.'
+    },
+    'fragments:number_of_fragments': {
+      value: 3,
+      description: 'The maximum number of fragments to include in search results.'
     }
   };
 });
