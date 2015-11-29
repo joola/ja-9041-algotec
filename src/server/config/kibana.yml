@@ -5,7 +5,7 @@ port: 5601
 host: "0.0.0.0"
 
 # The Elasticsearch instance to use for all your queries.
-elasticsearch_url: "http://localhost:9200"
+elasticsearch_url: "http://10.0.0.231:9200"
 
 # preserve_elasticsearch_host true will send the hostname specified in `elasticsearch`. If you set it to false,
 # then the host you use to connect to *this* Kibana instance will be sent.
@@ -48,4 +48,3 @@ verify_ssl: true
 
 # Set the path to where you would like the process id file to be created.
 # pid_file: /var/run/kibana.pid
-
