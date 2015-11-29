@@ -102,7 +102,7 @@ define(function (require) {
       return {
         query: $scope.searchSource.get('query') || '',
         sort: getSort.array(savedSearch.sort, $scope.indexPattern),
-        columns: savedSearch.columns || ['_source'],
+        columns: savedSearch.columns || ['concept'],
         index: $scope.indexPattern.id,
         interval: 'auto',
         filters: _.cloneDeep($scope.searchSource.get('filter'))
@@ -454,7 +454,9 @@ define(function (require) {
       .highlight({
         pre_tags: [highlightTags.pre],
         post_tags: [highlightTags.post],
-        fields: {'*': {}}
+        fields: {'*': {}},
+        fragment_size: config.get('fragments:fragment_size') || 250,
+        number_of_fragments: config.get('fragments:number_of_fragments') || 3
       })
       .set('filter', $state.filters || []);
     });

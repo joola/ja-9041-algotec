@@ -28,7 +28,7 @@ define(function (require) {
         defaults: {
           title: 'New Saved Search',
           description: '',
-          columns: [],
+          columns: ['concept'],
           hits: 0,
           sort: [],
           version: 1
