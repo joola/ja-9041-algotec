@@ -1,6 +1,9 @@
 <td colspan="{{ columns.length + 2 }}">
-  <a class="pull-right" ng-href="#/doc/{{indexPattern.id}}/{{row._index}}/{{row._type}}/{{row._id}}">
+  <a class="pull-right" ng-href="#/doc/{{indexPattern.id}}/{{row._index}}/{{row._type}}/{{row._id}}" ng-if="!row.study_vue_motion_url">
     <small>Link to /{{row._index}}/{{row._type}}/{{row._id}}</small></i>
+  </a>
+  <a class="pull-right" ng-href="{{row.study_vue_motion_url}}" ng-if="row.study_vue_motion_url">
+    <small>Link to {{row.study_vue_motion_url}}</small></i>
   </a>
   <doc-viewer hit="row" filter="filter" index-pattern="indexPattern"></doc-viewer>
 </td>
