@@ -30,7 +30,7 @@ define(function (require) {
           return formatter.convert(value);
         });
         $scope.fields = _.keys($scope.flattened).sort();
-
+        $scope.concept = $scope.formatted.concept;
         $scope.showArrayInObjectsWarning = function (row, field) {
           var value = $scope.flattened[field];
           return _.isArray(value) && typeof value[0] === 'object';
