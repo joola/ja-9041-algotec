@@ -51,5 +51,8 @@
     "marked": "~0.3.2",
     "numeral": "~1.5.3"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "bootstrap": "3.3.1"
+  }
 }
