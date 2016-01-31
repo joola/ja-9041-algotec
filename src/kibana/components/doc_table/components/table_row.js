@@ -170,6 +170,14 @@ define(function (require) {
             text = text.replace(/@kibana-highlighted-field@/ig, '<mark>');
             text = text.replace(/@\/kibana-highlighted-field@/ig, '</mark>');
           }
+          else if (field === 'concept' && row.highlight && row.highlight['concept']) {
+            text = '';
+            row.highlight['concept'].forEach(function (h) {
+              text += '...' + h.replace(/\r\n/ig, ' ').replace(/\n/ig, ' ').replace(/\r/ig, ' ');
+            });
+            text = text.replace(/@kibana-highlighted-field@/ig, '<mark>');
+            text = text.replace(/@\/kibana-highlighted-field@/ig, '</mark>');
+          }
           if (breakWords) {
             text = addWordBreaks(text, MIN_LINE_LENGTH);
 
